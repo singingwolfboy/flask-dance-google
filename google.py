@@ -2,9 +2,11 @@ import os
 from werkzeug.contrib.fixers import ProxyFix
 from flask import Flask, redirect, url_for
 from flask_dance.contrib.google import make_google_blueprint, google
+from raven.contrib.flask import Sentry
 
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
+sentry = Sentry(app)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "supersekrit")
 app.config["GOOGLE_OAUTH_CLIENT_ID"] = os.environ.get("GOOGLE_OAUTH_CLIENT_ID")
 app.config["GOOGLE_OAUTH_CLIENT_SECRET"] = os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET")

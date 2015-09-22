@@ -1,2 +1,4 @@
 flask-dance
 gunicorn
+raven
+blinker
