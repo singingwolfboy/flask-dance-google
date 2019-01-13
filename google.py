@@ -17,7 +17,7 @@ app.register_blueprint(google_bp, url_prefix="/login")
 def index():
     if not google.authorized:
         return redirect(url_for("google.login"))
-    resp = google.get("/plus/v1/people/me")
+    resp = google.get("/oauth2/v1/userinfo")
     assert resp.ok, resp.text
     return "You are {email} on Google".format(email=resp.json()["emails"][0]["value"])
 
