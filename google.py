@@ -19,7 +19,7 @@ def index():
         return redirect(url_for("google.login"))
     resp = google.get("/oauth2/v1/userinfo")
     assert resp.ok, resp.text
-    return "You are {email} on Google".format(email=resp.json()["emails"][0]["value"])
+    return "You are {email} on Google".format(email=resp.json()["email"])
 
 if __name__ == "__main__":
     app.run()
