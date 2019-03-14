@@ -126,7 +126,7 @@ Step 4: Run your app and login with Google!
 -------------------------------------------
 If you're setting environment variables manually, run your app using Python::
 
-    python google.py
+    FLASK_APP=google.py flask run
 
 If you're using a ``.env`` file for your environment variables, install `foreman`_
 and use that to run your app::
